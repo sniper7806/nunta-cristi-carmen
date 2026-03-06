@@ -1,0 +1,225 @@
+<!DOCTYPE HTML>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light">
+  <title>Cristi & Carmen - Invitație Nuntă</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- INTRO SPLASH -->
+<div id="intro-splash">
+  <video id="splash-video" preload="auto">
+    <source src="intro-video.webm" type="video/webm">
+  </video>
+
+</div>
+
+<!-- SITE CONTENT -->
+<div id="site-content" style="display:none;">
+
+  <!-- VIDEO FULLSCREEN -->
+  <div class="video-wrapper">
+    <video id="intro-video-main" autoplay muted playsinline loop>
+      <source src="intro-video.webm" type="video/webm">
+    </video>
+    <div class="video-overlay"></div>
+    <div class="video-text">
+      <div class="names">Cristi & Carmen</div>
+      <div class="date">26.09.2026</div>
+      <div class="video-fade-bottom"></div>
+    </div>
+  </div>
+
+  <!-- FAMILIE -->
+  <section class="family-section">
+    <p class="family-title">Alături de părinții:</p>
+    <div class="parents-grid">
+      <div class="parent-column">
+        <p>Adrian & Mihaela</p>
+        <p>Gorgan</p>
+      </div>
+      <div class="parent-column">
+        <p>Adrian & Florentina</p>
+        <p>Goga</p>
+      </div>
+    </div>
+    <p class="family-title">Și de nașii:</p>
+    <div class="nasi">
+      <p>Ramona & Dragoș</p>
+      <p>Țuinea</p>
+    </div>
+  </section>
+
+  <!-- COUNTDOWN -->
+  <h1>Numărătoare inversă</h1>
+  <p class="subtitle">Până la cea mai specială zi din viața noastră</p>
+
+  <div class="countdown-container">
+    <div class="countdown" id="countdown">
+      <div class="countdown-box">
+        <span class="number" id="days">0</span>
+        <span class="label">zile</span>
+      </div>
+      <div class="countdown-box">
+        <span class="number" id="hours">0</span>
+        <span class="label">ore</span>
+      </div>
+      <div class="countdown-box">
+        <span class="number" id="minutes">0</span>
+        <span class="label">minute</span>
+      </div>
+      <div class="countdown-box">
+        <span class="number" id="seconds">0</span>
+        <span class="label">secunde</span>
+      </div>
+    </div>
+
+    <div class="fireworks-box" id="fireworks-box">
+      <canvas id="fireworks"></canvas>
+      <div id="final-message">Ne-am căsătorit! ❤️</div>
+    </div>
+  </div>
+
+  <!-- LOCATII -->
+  <section class="locations-section">
+    <h2 class="locations-title">Locații</h2>
+    <div class="locations-container">
+
+      <!-- BISERICA -->
+      <div class="location-card">
+        <div class="location-title">⛪ Biserica „Nașterea Maicii Domnului”</div>
+        <p class="location-time">Ora: __:__</p>
+        <p class="location-address">Strada Târgu Neamț 6, București</p>
+        <div class="map-container">
+          <iframe
+            src="https://maps.google.com/maps?q=Biserica%20Nasterea%20Maicii%20Domnului%20Drumul%20Taberei%20Bucuresti&z=16&output=embed"
+            loading="lazy"></iframe>
+        </div>
+      </div>
+
+      <!-- RESTAURANT -->
+      <div class="location-card">
+        <div class="location-title">🍽 Restaurant Le Blanc</div>
+        <p class="location-time">Ora: __:__</p>
+        <p class="location-address">Strada Valea Oltului 199-201, București</p>
+        <div class="map-container">
+          <iframe
+            src="https://www.google.com/maps?q=Restaurant+Le+Blanc+Bucuresti&output=embed"
+            loading="lazy"></iframe>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</div>
+
+<!-- SCRIPT -->
+<script>
+const splash = document.getElementById("intro-splash");
+const splashVideo = document.getElementById("splash-video");
+const site = document.getElementById("site-content");
+
+// PORNIRE VIDEO LA CLICK
+splash.addEventListener("click", () => {
+  splashVideo.play();
+});
+
+// CÂND VIDEO SE TERMINĂ
+splashVideo.addEventListener("ended", () => {
+  splash.classList.add("fade-out");
+  setTimeout(() => {
+    splash.style.display = "none";
+    site.style.display = "block";
+    startCountdown();
+  }, 1000);
+});
+
+// ===== NUMĂRĂTOARE =====
+let countDownDate = new Date("2026-09-26T17:30:00+02:00").getTime();
+
+function updateCountdown() {
+  let now = new Date().getTime();
+  let distance = countDownDate - now;
+
+  if(distance <= 0){
+    clearInterval(interval);
+    document.getElementById("countdown").style.display = "none";
+    const fireworksBox = document.getElementById("fireworks-box");
+    fireworksBox.style.display = "flex";
+    document.getElementById("final-message").style.display = "block";
+    startFireworks();
+    return;
+  }
+
+  let zile = Math.floor(distance / (1000 * 60 * 60 * 24));
+  let ore = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  let minute = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  let secunde = Math.floor((distance % (1000 * 60)) / 1000);
+
+  document.getElementById("days").textContent = zile;
+  document.getElementById("hours").textContent = String(ore).padStart(2,'0');
+  document.getElementById("minutes").textContent = String(minute).padStart(2,'0');
+  document.getElementById("seconds").textContent = String(secunde).padStart(2,'0');
+}
+
+let interval = setInterval(updateCountdown, 1000);
+updateCountdown();
+
+// ===== ARTIFICII =====
+function startFireworks(){
+  const canvas = document.getElementById("fireworks");
+  const ctx = canvas.getContext("2d");
+
+  function resize(){
+    canvas.width = canvas.parentElement.clientWidth;
+    canvas.height = canvas.parentElement.clientHeight;
+  }
+  resize();
+  window.addEventListener("resize", resize);
+
+  let particles = [];
+
+  function random(min,max){ return Math.random()*(max-min)+min; }
+
+  function createFirework(){
+    const x = random(50, canvas.width-50);
+    const y = random(50, canvas.height/2);
+    for(let i=0;i<50;i++){
+      particles.push({ x, y, vx: random(-3,3), vy: random(-3,3), alpha:1, color: `hsl(${Math.random()*360},100%,65%)` });
+    }
+  }
+
+  const fireworkInterval = setInterval(createFirework,500);
+
+  function animate(){
+    ctx.fillStyle = "rgba(53,80,26,1)";
+    ctx.fillRect(0,0,canvas.width,canvas.height);
+
+    particles.forEach((p,i)=>{
+      p.x+=p.vx;
+      p.y+=p.vy;
+      p.alpha-=0.02;
+      ctx.globalAlpha=p.alpha;
+      ctx.fillStyle=p.color;
+      ctx.beginPath();
+      ctx.arc(p.x,p.y,2,0,Math.PI*2);
+      ctx.fill();
+      if(p.alpha<=0) particles.splice(i,1);
+    });
+
+    ctx.globalAlpha=1;
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+}
+</script>
+
+</body>
+
+</html>
