@@ -1,64 +1,68 @@
-<!DOCTYPE HTML>
+<!DOCTYPE HTML> 
 <html lang="ro">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="color-scheme" content="light">
   <title>Cristi & Carmen - Invitație Nuntă</title>
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<!-- INTRO SPLASH -->
-<div id="intro-splash">
-  <video id="splash-video" preload="auto">
-    <source src="intro-video.webm" type="video/webm">
-  </video>
+<!-- BACKGROUND WRAPPER -->
+<div class="bg-wrapper">
 
-</div>
-
-<!-- SITE CONTENT -->
-<div id="site-content" style="display:none;">
-
-  <!-- VIDEO FULLSCREEN -->
-  <div class="video-wrapper">
-    <video id="intro-video-main" autoplay muted playsinline loop>
+  <!-- INTRO SPLASH -->
+  <div id="intro-splash">
+    <video id="splash-video" preload="auto">
       <source src="intro-video.webm" type="video/webm">
     </video>
-    <div class="video-overlay"></div>
-    <div class="video-text">
-      <div class="names">Cristi & Carmen</div>
-      <div class="date">26.09.2026</div>
-      <div class="video-fade-bottom"></div>
-    </div>
+   
   </div>
 
-  <!-- FAMILIE -->
-  <section class="family-section">
-    <p class="family-title">Alături de părinții:</p>
-    <div class="parents-grid">
-      <div class="parent-column">
-        <p>Adrian & Mihaela</p>
-        <p>Gorgan</p>
-      </div>
-      <div class="parent-column">
-        <p>Adrian & Florentina</p>
-        <p>Goga</p>
-      </div>
-    </div>
-    <p class="family-title">Și de nașii:</p>
-    <div class="nasi">
-      <p>Ramona & Dragoș</p>
-      <p>Țuinea</p>
-    </div>
-  </section>
+  <!-- SITE CONTENT -->
+  <div id="site-content" style="display:none;">
 
-  <!-- COUNTDOWN -->
+    <!-- VIDEO FULLSCREEN -->
+    <div class="video-wrapper">
+      <video id="intro-video-main" autoplay muted playsinline loop>
+        <source src="intro-video.webm" type="video/webm">
+      </video>
+      <div class="video-overlay"></div>
+      <div class="video-text">
+        <div class="names">Cristi & Carmen</div>
+        <div class="date">26.09.2026</div>
+        <div class="video-fade-bottom"></div>
+      </div>
+    </div>
+
+    <!-- FAMILIE -->
+    <section class="family-section">
+      <p class="family-title">Alături de părinții:</p>
+      <div class="parents-grid">
+        <div class="parent-column">
+          <p>Adrian & Mihaela</p>
+          <p>Gorgan</p>
+        </div>
+        <div class="parent-column">
+          <p>Adrian & Florentina</p>
+          <p>Goga</p>
+        </div>
+      </div>
+      <p class="family-title">Și de nașii:</p>
+      <div class="nasi">
+        <p>Ramona & Dragoș</p>
+        <p>Țuinea</p>
+      </div>
+    </section>
+
+    <!-- CONTAINER NUMĂRĂTOARE + TITLU + SUBTITLU -->
+<div class="countdown-group">
   <h1>Numărătoare inversă</h1>
   <p class="subtitle">Până la cea mai specială zi din viața noastră</p>
 
   <div class="countdown-container">
+    <!-- NUMĂRĂTOARE -->
     <div class="countdown" id="countdown">
       <div class="countdown-box">
         <span class="number" id="days">0</span>
@@ -78,43 +82,47 @@
       </div>
     </div>
 
+    <!-- CASUȚĂ ARTIFICII -->
     <div class="fireworks-box" id="fireworks-box">
       <canvas id="fireworks"></canvas>
       <div id="final-message">Ne-am căsătorit! ❤️</div>
     </div>
   </div>
+</div>
 
-  <!-- LOCATII -->
-  <section class="locations-section">
-    <h2 class="locations-title">Locații</h2>
-    <div class="locations-container">
+    <!-- LOCATII -->
+    <section class="locations-section">
+      <h2 class="locations-title">Locații</h2>
+      <div class="locations-container">
 
-      <!-- BISERICA -->
-      <div class="location-card">
-        <div class="location-title">⛪ Biserica „Nașterea Maicii Domnului”</div>
-        <p class="location-time">Ora: __:__</p>
-        <p class="location-address">Strada Târgu Neamț 6, București</p>
-        <div class="map-container">
-          <iframe
-            src="https://maps.google.com/maps?q=Biserica%20Nasterea%20Maicii%20Domnului%20Drumul%20Taberei%20Bucuresti&z=16&output=embed"
-            loading="lazy"></iframe>
+        <!-- BISERICA -->
+        <div class="location-card">
+          <div class="location-title">⛪ Biserica „Nașterea Maicii Domnului”</div>
+          <p class="location-time">Ora: __:__</p>
+          <p class="location-address">Strada Târgu Neamț 6, București</p>
+          <div class="map-container">
+            <iframe
+              src="https://maps.google.com/maps?q=Biserica%20Nasterea%20Maicii%20Domnului%20Drumul%20Taberei%20Bucuresti&z=16&output=embed"
+              loading="lazy"></iframe>
+          </div>
         </div>
-      </div>
 
-      <!-- RESTAURANT -->
-      <div class="location-card">
-        <div class="location-title">🍽 Restaurant Le Blanc</div>
-        <p class="location-time">Ora: __:__</p>
-        <p class="location-address">Strada Valea Oltului 199-201, București</p>
-        <div class="map-container">
-          <iframe
-            src="https://www.google.com/maps?q=Restaurant+Le+Blanc+Bucuresti&output=embed"
-            loading="lazy"></iframe>
+        <!-- RESTAURANT -->
+        <div class="location-card">
+          <div class="location-title">🍽 Restaurant Le Blanc</div>
+          <p class="location-time">Ora: __:__</p>
+          <p class="location-address">Strada Valea Oltului 199-201, București</p>
+          <div class="map-container">
+            <iframe
+              src="https://www.google.com/maps?q=Restaurant+Le+Blanc+Bucuresti&output=embed"
+              loading="lazy"></iframe>
+          </div>
         </div>
-      </div>
 
-    </div>
-  </section>
+      </div>
+    </section>
+
+  </div>
 
 </div>
 
@@ -147,7 +155,7 @@ function updateCountdown() {
   let distance = countDownDate - now;
 
   if(distance <= 0){
-    clearInterval(interval);
+    clearInterval(countdownInterval);
     document.getElementById("countdown").style.display = "none";
     const fireworksBox = document.getElementById("fireworks-box");
     fireworksBox.style.display = "flex";
@@ -167,7 +175,7 @@ function updateCountdown() {
   document.getElementById("seconds").textContent = String(secunde).padStart(2,'0');
 }
 
-let interval = setInterval(updateCountdown, 1000);
+let countdownInterval = setInterval(updateCountdown, 1000);
 updateCountdown();
 
 // ===== ARTIFICII =====
@@ -197,7 +205,7 @@ function startFireworks(){
   const fireworkInterval = setInterval(createFirework,500);
 
   function animate(){
-    ctx.fillStyle = "rgba(53,80,26,1)";
+    ctx.fillStyle = "rgba(109,133,106,1)"; // verde canvas
     ctx.fillRect(0,0,canvas.width,canvas.height);
 
     particles.forEach((p,i)=>{
@@ -221,5 +229,4 @@ function startFireworks(){
 </script>
 
 </body>
-
 </html>
