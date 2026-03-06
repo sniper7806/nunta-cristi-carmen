@@ -164,9 +164,10 @@ html, body {
 /* =======================
    SECTIUNI SITE
 ======================= */
-#site-content {
-  background-color: rgba(241, 235, 223, 0.9) !important;
+#site-content, .family-section, .locations-section {
+  background-color: rgba(241,235,223,0.9) !important;
   color: #4B2E1E !important;
+  filter: none !important;
   width: 100%;
 }
 
@@ -177,8 +178,6 @@ html, body {
   margin: 0 auto;
   padding: 3em 1em;
   text-align: center;
-  color: #4B2E1E;
-  background-color: rgba(241, 235, 223, 0.9);
 }
 
 .family-title,
@@ -326,9 +325,10 @@ html, body {
    DARK MODE FIX
 ======================= */
 @media (prefers-color-scheme: dark) {
-  body, #site-content {
+  body, #site-content, .family-section, .locations-section {
     background-color: #6d856a !important;
     color: #fff !important;
+    filter: none !important;
   }
 }
 
