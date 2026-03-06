@@ -1,31 +1,6 @@
-/* =======================
-   GLOBAL / RESET
-======================= */
 html {
   color-scheme: light !important;
 }
-
-*, *::before, *::after {
-  box-sizing: border-box;
-}
-
-html, body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-  overflow-x: hidden;
-  background-color: #6d856a !important;
-  color: #fff !important;
-  font-family: Arial, sans-serif;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  min-height: 100vh;
-}
-
 /* =======================
    INTRO SPLASH FULLSCREEN
 ======================= */
@@ -45,7 +20,7 @@ html, body {
 }
 
 #intro-splash video {
-  position: absolute;
+  position: absolute; /* pentru a fi complet poziționat */
   top: 0;
   left: 0;
   width: 100%;
@@ -55,7 +30,10 @@ html, body {
 
 #splash-overlay {
   position: absolute;
-  inset: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -75,6 +53,7 @@ html, body {
   font-size: 1.2rem;
 }
 
+/* Fade out splash */
 .fade-out {
   animation: fadeOut 1s forwards;
 }
@@ -82,6 +61,28 @@ html, body {
 @keyframes fadeOut {
   from { opacity: 1; }
   to { opacity: 0; visibility: hidden; }
+}
+
+/* =======================
+   BODY
+======================= */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  font-family: Arial, sans-serif;
+  background-color: #6d856a;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  text-align: center;
 }
 
 /* =======================
@@ -107,9 +108,6 @@ html, body {
     rgba(0,0,0,0.35),
     rgba(0,0,0,0.15)
   );
-  position: absolute;
-  inset: 0;
-  z-index: 1;
 }
 
 .video-text {
@@ -145,6 +143,7 @@ html, body {
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* Fade static jos video */
 .video-fade-bottom {
   position: absolute;
   bottom: 0;
@@ -162,39 +161,36 @@ html, body {
 }
 
 /* =======================
-   SECTIUNI SITE
+   SECȚIUNE FAMILIE
 ======================= */
-#site-content, .family-section, .locations-section {
-  background-color: rgba(241,235,223,0.9) !important;
-  color: #4B2E1E !important;
-  filter: none !important;
+.family-section {
   width: 100%;
-}
-
-.family-section,
-.locations-section {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
+  max-width: 1200px; /* limitează lățimea pe desktop */
+  margin: 0 auto;     /* centrează secțiunea */
+  background-color: rgba(241, 235, 223, 0.9);
   padding: 3em 1em;
   text-align: center;
+  color: #4B2E1E;
 }
 
-.family-title,
-.locations-title {
-  font-family: 'Great Vibes', cursive;
+
+
+.family-title {
+  font-size: 2.2em;
   font-weight: 600;
   margin-bottom: 1.5em;
+  font-family: 'Great Vibes', cursive;
 }
 
 .parents-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* se scalează */
   gap: 2em;
   max-width: 700px;
-  margin: 0 auto 3em;
+  margin: 0 auto 3em; /* centru */
 }
 
+/* NAȘI */
 .nasi {
   max-width: 400px;
   margin: 0 auto 2em;
@@ -206,18 +202,27 @@ html, body {
   font-size: 1.1em;
 }
 
-/* COUNTDOWN + ARTIFICII */
+/* =======================
+   COUNTDOWN + ARTIFICII
+======================= */
 .countdown-container {
   display: flex;
   gap: 2em;
-  flex-wrap: wrap;
-  justify-content: center;
   align-items: flex-start;
   margin-bottom: 4em;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.countdown {
+  display: flex;
+  gap: 1em;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .countdown-box {
-  background-color: rgba(255,255,255,0.15);
+  background-color: rgba(255, 255, 255, 0.15);
   padding: 1.5em;
   border-radius: 12px;
   min-width: 80px;
@@ -235,7 +240,7 @@ html, body {
   letter-spacing: 1px;
 }
 
-/* Fireworks */
+/* Fireworks box */
 .fireworks-box {
   display: none;
   position: relative;
@@ -270,11 +275,30 @@ html, body {
   padding: 10px;
 }
 
-/* LOCATII */
+/* =======================
+   LOCATII
+======================= */
+.locations-section {
+  width: 100%;
+  max-width: 1200px;  /* centru pe ecrane mari */
+  margin: 0 auto;
+  background: rgba(241,235,223,0.95);
+  padding: 3em 1em;
+  text-align: center;
+  color: #4B2E1E;
+}
+
+.locations-title {
+  font-size: 2em;
+  font-weight: 700;
+  margin-bottom: 1.5em;
+  font-family: 'Great Vibes', cursive;
+}
+
 .locations-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: center; /* centrează cardurile */
   gap: 2em;
 }
 
@@ -321,16 +345,28 @@ html, body {
   border: 0;
 }
 
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden; /* elimină scroll-ul orizontal */
+  background-color: #6d856a !important;
+  color: #fff !important;
+}
+
+
 /* =======================
    DARK MODE FIX
 ======================= */
 @media (prefers-color-scheme: dark) {
-  body, #site-content, .family-section, .locations-section {
-    background-color: #6d856a !important;
-    color: #fff !important;
-    filter: none !important;
+  body {
+    background-color: #6d856a !important; /* aceași culoare ca pe light mode */
+    color: #fff !important; /* text alb */
   }
 }
+
+
 
 /* =======================
    MEDIA QUERIES - MOBILE
@@ -368,4 +404,5 @@ html, body {
     width: 250px;
     height: 180px;
   }
+  
 }
