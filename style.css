@@ -1,211 +1,310 @@
-/* =======================
-   WRAPPER BACKGROUND
-======================= */
-.bg-wrapper {
-  background: url('VERDE.jpg') no-repeat center center;
-  background-size: cover;
-  min-height: 100vh;
-  width: 100%;
+/* BODY */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #6d856a;
+  color: #fff;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  text-align: center;
 }
 
-/* =======================
-   INTRO SPLASH
-======================= */
-#intro-splash {
-  position: fixed;
-  inset: 0;
+/* VIDEO WRAPPER FULLSCREEN */
+.video-wrapper {
+  position: relative;
   width: 100%;
-  height: 100%;
-  background: black;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-  cursor: pointer;
+  height: 100vh; /* full screen */
   overflow: hidden;
 }
 
-#intro-splash video {
-  position: absolute;
-  top:0; left:0; width:100%; height:100%;
+/* VIDEO */
+#intro-video {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 
-#splash-overlay {
+/* OVERLAY + FADE */
+.video-overlay {
   position: absolute;
   inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.65), rgba(0,0,0,0.45), rgba(0,0,0,0.65));
+  z-index: 1;
+}
+
+/* TEXT PESTE VIDEO */
+.video-text {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: white;
-  font-family: 'Great Vibes', cursive;
-  text-shadow: 0 4px 15px rgba(0,0,0,0.7);
-  z-index: 2;
+  pointer-events: none;
+  text-align: center;
+  animation: fadeIn 2.5s ease forwards;
 }
 
-#splash-overlay h1 { font-size: clamp(3rem, 6vw, 5rem); }
-#splash-overlay p { font-size: 1.2rem; }
-.fade-out { animation: fadeOut 1s forwards; }
-@keyframes fadeOut { from{opacity:1} to{opacity:0;visibility:hidden} }
+/* NUME */
+.video-text .names {
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(3rem, 6vw, 5rem);
+  color: #fff;
+  text-shadow: 0 6px 25px rgba(0,0,0,0.7);
+}
 
-/* =======================
-   VIDEO FULLSCREEN
-======================= */
-.video-wrapper { position: relative; width: 100%; height: 100vh; overflow:hidden; }
-#intro-video-main { width:100%; height:100%; object-fit:cover; }
-.video-overlay { background: linear-gradient(to bottom, rgba(0,0,0,0.55), rgba(0,0,0,0.35), rgba(0,0,0,0.15)); pointer-events:none; }
-.video-text { position:absolute; inset:0; z-index:2; display:flex; flex-direction:column; justify-content:center; align-items:center; pointer-events:none; animation: fadeIn 2.5s ease forwards; text-align:center; }
-.video-text .names { font-family: 'Great Vibes', cursive; font-size: clamp(3rem,6vw,5rem); color:#fff; text-shadow:0 6px 25px rgba(0,0,0,0.7); }
-.video-text .date { font-family: 'Great Vibes', cursive; margin-top:2em; font-size:2.3rem; color:#fff; text-shadow:0 4px 12px rgba(0,0,0,0.6); }
+/* DATA */
+.video-text .date {
+  margin-top: 6em;
+  font-size: 1.1rem;
+  color: rgba(255,255,255,1);
+  text-shadow: 0 4px 12px rgba(0,0,0,0.6);
+}
 
-
+/* VIDEO FADE BOTTOM */
 .video-fade-bottom {
   position: absolute;
   bottom: 0;
-  left: 0;
   width: 100%;
-  height: 220px;
-  background: linear-gradient(
-    to bottom,
-    rgba(241, 235, 223, 0) 0%,
-    rgba(241, 235, 223, 0.3) 50%,
-    rgba(241, 235, 223, 0.9) 100%
-  );
-  pointer-events: none;
-  z-index: 3;
+  height: 150px;
+  background: linear-gradient(transparent, #6d856a);
+  z-index: 2;
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
-@keyframes fadeIn { from{opacity:0;transform:translateY(10px);} to{opacity:1;transform:translateY(0);} }
+/* SECȚIUNE FAMILIE */
+.family-section {
+  width: 100%;
+  background-color: rgba(241, 235, 223, 0.9);
+  padding: 3em 1em;
+  text-align: center;
+  color: #4B2E1E;
+}
 
-/* =======================
-   FAMILY & LOCATIONS - CREM
-======================= */
-.family-section, .locations-section { background: url('CREM.jpg') no-repeat center center; background-size: cover; padding:3em 1em; text-align:center; color:#4B2E1E; max-width:1200px; margin:0 auto; }
+/* TITLURI */
+.family-title {
+  font-size: 2.2em;
+  font-weight: 600;
+  margin-bottom: 1.5em;
+  font-family: 'Great Vibes', cursive;
+}
 
-.family-title { font-size:2.2em; font-weight:600; margin-bottom:1.5em; font-family:'Great Vibes', cursive; }
-.parents-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:2em; max-width:700px; margin:0 auto 3em; }
-.nasi { max-width:400px; margin:0 auto 2em; text-align:center; }
-.nasi p { margin:0.3em 0; font-size:1.1em; }
+/* GRID PĂRINȚI */
+.parents-grid {
+  display: grid;
+  grid-template-columns: 2fr 2fr;
+  gap: 2em;
+  max-width: 700px;
+  margin: 0 auto 3em;
+}
 
-.locations-title { font-size:2em; font-weight:700; margin-bottom:1.5em; font-family:'Great Vibes', cursive; }
-.locations-container { display:flex; flex-wrap:wrap; justify-content:center; gap:2em; }
-.location-card { background:#fff; border-radius:14px; padding:1.5em; max-width:360px; box-shadow:0 8px 20px rgba(0,0,0,0.15); }
-.location-title { font-family:Arial,sans-serif; font-size:1.4em; font-weight:700; color:#4B2E1E; margin-bottom:5px; display:flex; justify-content:center; gap:0.5em; }
-.location-time { margin:0.5em 0; font-weight:bold; }
-.location-address { font-size:0.95em; margin-bottom:1em; }
-.map-container { width:100%; height:250px; border-radius:10px; overflow:hidden; }
-.map-container iframe { width:100%; height:100%; border:0; }
+.parent-column p {
+  margin: 0.5em 0;
+  font-size: 1.1em;
+}
 
-/* =======================
-   COUNTDOWN + FIREWORKS
-======================= */
+/* NAȘI */
+.nasi p {
+  margin: 0.3em 0;
+  font-size: 1.1em;
+}
 
-/* =======================
-   COUNTDOWN CU FUNDAL VERDE + TEXT MARO
-======================= */
+/* LOCATII */
+.locations-section{
+  width:100%;
+  background:rgba(241,235,223,0.95);
+  padding:3em 1em;
+  text-align:center;
+  color:#4B2E1E;
+}
 
-/* =======================
-   COUNTDOWN CU FUNDAL VERDE + TEXT CREM
-======================= */
+.location-title {
+  font-family: 'Arial', sans-serif; /* același font pentru ambele */
+  font-size: 1.4em;
+  font-weight: 700; /* bold */
+  color: #4B2E1E;
+  margin-bottom: 5px;
+}
 
-/* =======================
-   COUNTDOWN CU FUNDAL VERDE + TEXT CREM + FONT NORMAL
-======================= */
-/* =======================
-   COUNTDOWN CU SHADOW + FUNDAL VERDE + TEXT CREM + FONT NORMAL
-======================= */
-/* =======================
-   COUNTDOWN CU FUNDAL VERDE LUMINOS + TEXT CREM + SHADOW + FONT NORMAL
-======================= */
+.locations-container{
+  display:flex;
+  gap:2em;
+  justify-content:center;
+  flex-wrap:wrap;
+}
 
+.location-card{
+  background:white;
+  border-radius:14px;
+  padding:1.5em;
+  max-width:360px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.15);
+}
+
+.location-header{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+}
+
+.icon{
+  font-size:1.5em;
+}
+
+.location-time{
+  margin:0.5em 0;
+  font-weight:bold;
+}
+
+.location-address{
+  font-size:0.95em;
+  margin-bottom:1em;
+}
+
+/* HARTA */
+.map-container{
+  width:100%;
+  height:250px;
+  border-radius:10px;
+  overflow:hidden;
+}
+
+.map-container iframe{
+  width:100%;
+  height:100%;
+  border:0;
+}
+
+/* CONTAINER COUNTDOWN + TITLU */
 .countdown-group {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1em; /* spațiu între titlu, subtitlu și countdown */
+  gap: 1em;
   color: #f5e6c8; /* crem */
   text-align: center;
+  margin: 3em 0;
 }
 
-/* suprascriem culoarea pentru h1 și subtitlu în acest grup */
 .countdown-group h1,
 .countdown-group .subtitle {
   color: #f5e6c8; /* crem */
 }
-/* Container countdown */
+
+/* COUNTDOWN BOXES */
 .countdown-container {
   display: flex;
   gap: 2em;
   align-items: flex-start;
-  margin-bottom: 4em;
+  justify-content: center;
+}
+
+.countdown {
+  display: flex;
+  gap: 1em;
   flex-wrap: wrap;
   justify-content: center;
-  background: rgba(109, 133, 106, 0.65); /* verde mai luminos + transparent */
-  padding: 1.5em 2em;
-  border-radius: 15px;
 }
 
-/* Box individual */
 .countdown-box {
-  background-color: rgba(109, 133, 106, 0.55); /* verde mai luminos semi-transparent */
-  padding: 1.5em;
+  background-color: rgba(255, 255, 255, 0.15);
+  padding: 1.5em 1.5em;
   border-radius: 12px;
   min-width: 80px;
-  color: rgba(241, 235, 223, 1); /* crem text */
-  font-weight: bold;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-family: Arial, sans-serif; /* font normal */
-  box-shadow: 0 6px 15px rgba(0,0,0,0.35); /* shadow elegant */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Hover optional */
-.countdown-box:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.45);
-}
-
-/* Numerele */
 .countdown-box span.number {
   font-size: 2em;
-  color: rgba(241, 235, 223, 1); /* crem */
-  font-family: Arial, sans-serif;
+  display: block;
 }
 
-/* Etichetele (zile, ore, minute, secunde) */
 .countdown-box span.label {
   font-size: 0.9em;
+  opacity: 0.8;
   text-transform: uppercase;
   letter-spacing: 1px;
-  color: rgba(241, 235, 223, 1); /* crem */
-  font-weight: 600;
-  font-family: Arial, sans-serif;
 }
 
-.countdown { display:flex; gap:1em; flex-wrap:wrap; justify-content:center; }
+/* CASUȚĂ ARTIFICII (ASCUNSĂ INIT) */
+.fireworks-box {
+  display: none;
+  position: relative;
+  width: 300px;
+  height: 200px;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: rgba(0,0,0,0.1);
+}
 
+.fireworks-box canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
 
-.fireworks-box { display:none; position:relative; width:300px; height:200px; border-radius:12px; overflow:hidden; background:url('VERDE.jpg') no-repeat center center; background-size:cover; }
-.fireworks-box canvas { position:absolute; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:0; }
-#final-message { display:none; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); color:white; font-size:1.5em; font-weight:bold; text-align:center; z-index:1; padding:10px; }
+#final-message {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 1.5em;
+  font-weight: bold;
+  text-align: center;
+  z-index: 1;
+  padding: 10px;
+}
 
-/* =======================
-   MEDIA QUERIES
-======================= */
+/* RESPONSIVE */
 @media(max-width:600px){
-  .parents-grid{grid-template-columns:1fr; gap:1em;}
-  .parent-column p,.nasi p{font-size:1em;}
-  .locations-container{flex-direction:column; align-items:center;}
-  .video-text .names{font-size:clamp(2.5rem,8vw,4rem);}
-  .video-text .date{font-size:2rem;}
-  .countdown-box{min-width:60px; padding:1em;}
-  .fireworks-box{width:250px; height:180px;}
+
+  /* Countdown grup vertical pe telefon, font Arial */
+  .countdown-group h1,
+  .countdown-group .subtitle {
+    font-family: Arial, sans-serif;
+    text-align: center;
+  }
+
+  .countdown {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .countdown-box {
+    min-width: 100px;
+  }
+
+  .parents-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
+  }
+
+  .parent-column p {
+    font-size: 1em;
+  }
+
+  .locations-container {
+    flex-direction: column;
+    align-items: center;
+  }
 }
