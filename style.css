@@ -1,6 +1,31 @@
+/* =======================
+   GLOBAL / RESET
+======================= */
 html {
-  color-scheme: light;
+  color-scheme: light !important;
 }
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  background-color: #6d856a !important;
+  color: #fff !important;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+}
+
 /* =======================
    INTRO SPLASH FULLSCREEN
 ======================= */
@@ -20,7 +45,7 @@ html {
 }
 
 #intro-splash video {
-  position: absolute; /* pentru a fi complet poziționat */
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
@@ -30,10 +55,7 @@ html {
 
 #splash-overlay {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -53,7 +75,6 @@ html {
   font-size: 1.2rem;
 }
 
-/* Fade out splash */
 .fade-out {
   animation: fadeOut 1s forwards;
 }
@@ -61,28 +82,6 @@ html {
 @keyframes fadeOut {
   from { opacity: 1; }
   to { opacity: 0; visibility: hidden; }
-}
-
-/* =======================
-   BODY
-======================= */
-* {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  font-family: Arial, sans-serif;
-  background-color: #6d856a;
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  min-height: 100vh;
-  text-align: center;
 }
 
 /* =======================
@@ -108,6 +107,9 @@ body {
     rgba(0,0,0,0.35),
     rgba(0,0,0,0.15)
   );
+  position: absolute;
+  inset: 0;
+  z-index: 1;
 }
 
 .video-text {
@@ -143,7 +145,6 @@ body {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Fade static jos video */
 .video-fade-bottom {
   position: absolute;
   bottom: 0;
@@ -161,34 +162,40 @@ body {
 }
 
 /* =======================
-   SECȚIUNE FAMILIE
+   SECTIUNI SITE
 ======================= */
-.family-section {
+#site-content {
+  background-color: rgba(241, 235, 223, 0.9) !important;
+  color: #4B2E1E !important;
   width: 100%;
-  max-width: 1200px; /* limitează lățimea pe desktop */
-  margin: 0 auto;     /* centrează secțiunea */
-  background-color: rgba(241, 235, 223, 0.9);
+}
+
+.family-section,
+.locations-section {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
   padding: 3em 1em;
   text-align: center;
   color: #4B2E1E;
+  background-color: rgba(241, 235, 223, 0.9);
 }
 
-.family-title {
-  font-size: 2.2em;
+.family-title,
+.locations-title {
+  font-family: 'Great Vibes', cursive;
   font-weight: 600;
   margin-bottom: 1.5em;
-  font-family: 'Great Vibes', cursive;
 }
 
 .parents-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* se scalează */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2em;
   max-width: 700px;
-  margin: 0 auto 3em; /* centru */
+  margin: 0 auto 3em;
 }
 
-/* NAȘI */
 .nasi {
   max-width: 400px;
   margin: 0 auto 2em;
@@ -200,27 +207,18 @@ body {
   font-size: 1.1em;
 }
 
-/* =======================
-   COUNTDOWN + ARTIFICII
-======================= */
+/* COUNTDOWN + ARTIFICII */
 .countdown-container {
   display: flex;
   gap: 2em;
+  flex-wrap: wrap;
+  justify-content: center;
   align-items: flex-start;
   margin-bottom: 4em;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.countdown {
-  display: flex;
-  gap: 1em;
-  flex-wrap: wrap;
-  justify-content: center;
 }
 
 .countdown-box {
-  background-color: rgba(255, 255, 255, 0.15);
+  background-color: rgba(255,255,255,0.15);
   padding: 1.5em;
   border-radius: 12px;
   min-width: 80px;
@@ -238,7 +236,7 @@ body {
   letter-spacing: 1px;
 }
 
-/* Fireworks box */
+/* Fireworks */
 .fireworks-box {
   display: none;
   position: relative;
@@ -273,30 +271,11 @@ body {
   padding: 10px;
 }
 
-/* =======================
-   LOCATII
-======================= */
-.locations-section {
-  width: 100%;
-  max-width: 1200px;  /* centru pe ecrane mari */
-  margin: 0 auto;
-  background: rgba(241,235,223,0.95);
-  padding: 3em 1em;
-  text-align: center;
-  color: #4B2E1E;
-}
-
-.locations-title {
-  font-size: 2em;
-  font-weight: 700;
-  margin-bottom: 1.5em;
-  font-family: 'Great Vibes', cursive;
-}
-
+/* LOCATII */
 .locations-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center; /* centrează cardurile */
+  justify-content: center;
   gap: 2em;
 }
 
@@ -343,26 +322,15 @@ body {
   border: 0;
 }
 
-html, body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-  overflow-x: hidden; /* elimină scroll-ul orizontal */
-}
-
-
 /* =======================
    DARK MODE FIX
 ======================= */
 @media (prefers-color-scheme: dark) {
-  body {
-    background-color: #6d856a; /* aceași culoare ca pe light mode */
-    color: #fff; /* text alb */
+  body, #site-content {
+    background-color: #6d856a !important;
+    color: #fff !important;
   }
 }
-
-
 
 /* =======================
    MEDIA QUERIES - MOBILE
@@ -400,5 +368,4 @@ html, body {
     width: 250px;
     height: 180px;
   }
-  
 }
