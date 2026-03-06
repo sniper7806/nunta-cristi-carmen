@@ -123,21 +123,20 @@
    COUNTDOWN CU FUNDAL VERDE LUMINOS + TEXT CREM + SHADOW + FONT NORMAL
 ======================= */
 
-/* Titlu și subtitlu */
-h1 {
-  font-family: 'Cursive', sans-serif;
-  font-size: 2em;
-  margin: 0.5em 0 0.2em;
+.countdown-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em; /* spațiu între titlu, subtitlu și countdown */
   color: #4B2E1E; /* maro închis */
+  text-align: center;
 }
 
-p.subtitle {
-  font-size: 1em;
-  margin-bottom: 2em;
-  opacity: 0.8;
-  color: #4B2E1E; /* același maro închis */
+/* suprascriem culoarea pentru h1 și subtitlu în acest grup */
+.countdown-group h1,
+.countdown-group .subtitle {
+  color: #4B2E1E;
 }
-
 /* Container countdown */
 .countdown-container {
   display: flex;
