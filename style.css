@@ -1,10 +1,17 @@
+#my-onlylight-element {
+  color-scheme: only light;
+}
+
+:root {
+  color-scheme: only light;
+}
 /* GENERAL */
 
 body{
 margin:0;
 font-family:Arial, sans-serif;
-background:#ffffff;
-color:#ffffff;
+background:#6d856a;
+color:#fff;
 text-align:center;
 }
 
