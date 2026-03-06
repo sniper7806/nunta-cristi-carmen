@@ -168,7 +168,7 @@ body {
   width: 100%;
   max-width: 1200px; /* limitează lățimea pe desktop */
   margin: 0 auto;     /* centrează secțiunea */
-  background-color: rgba(241, 235, 223, 1);
+  background-color: #f1ebdf;
   padding: 3em 1em;
   text-align: center;
   color: #4B2E1E; /* maro închis, vizibil pe fundal deschis */
@@ -221,7 +221,7 @@ body {
 }
 
 .countdown-box {
-  background-color: rgba(255, 255, 255, 0.15);
+  background-color: #4B2E1E;
   padding: 1.5em;
   border-radius: 12px;
   min-width: 80px;
@@ -281,7 +281,7 @@ body {
   width: 100%;
   max-width: 1200px;  /* centru pe ecrane mari */
   margin: 0 auto;
-  background: rgba(241,235,223,0.95);
+  background-color: #f1ebdf;
   padding: 3em 1em;
   text-align: center;
   color: #4B2E1E;
@@ -397,5 +397,6 @@ html, body {
     );
 }
 }
+
 
 
