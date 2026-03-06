@@ -124,15 +124,18 @@
 ======================= */
 
 /* Titlu și subtitlu */
-h1, .subtitle {
-  color: rgba(241, 235, 223, 1); /* crem */
-  font-family: Arial, sans-serif; /* font normal */
-  text-align: center;
+h1 {
+  font-family: 'Cursive', sans-serif;
+  font-size: 2em;
+  margin: 0.5em 0 0.2em;
+  color: #4B2E1E; /* maro închis */
 }
 
-.subtitle {
-  font-size: 1.2em;
-  margin-bottom: 1em;
+p.subtitle {
+  font-size: 1em;
+  margin-bottom: 2em;
+  opacity: 0.8;
+  color: #4B2E1E; /* același maro închis */
 }
 
 /* Container countdown */
