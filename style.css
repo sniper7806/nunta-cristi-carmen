@@ -1,3 +1,6 @@
+:root {
+  color-scheme: light;
+}
 /* =======================
    INTRO SPLASH FULLSCREEN
 ======================= */
@@ -68,6 +71,7 @@
 }
 
 body {
+   background:#f1ebdf;
   margin: 0;
   padding: 0;
   width: 100%;
@@ -168,7 +172,7 @@ body {
   width: 100%;
   max-width: 1200px; /* limitează lățimea pe desktop */
   margin: 0 auto;     /* centrează secțiunea */
-  background-color: #f1ebdf;
+  background-color: #f1ebdf !important; 
   padding: 3em 1em;
   text-align: center;
   color: #4B2E1E; /* maro închis, vizibil pe fundal deschis */
@@ -221,7 +225,7 @@ body {
 }
 
 .countdown-box {
-  background-color: #4B2E1E;
+  background-color: #4B2E1E !important;
   padding: 1.5em;
   border-radius: 12px;
   min-width: 80px;
@@ -281,7 +285,7 @@ body {
   width: 100%;
   max-width: 1200px;  /* centru pe ecrane mari */
   margin: 0 auto;
-  background-color: #f1ebdf;
+  background-color: #f1ebdf !important;
   padding: 3em 1em;
   text-align: center;
   color: #4B2E1E;
@@ -397,6 +401,7 @@ html, body {
     );
 }
 }
+
 
 
 
