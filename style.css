@@ -1,3 +1,6 @@
+html {
+  color-scheme: light;
+}
 /* =======================
    INTRO SPLASH FULLSCREEN
 ======================= */
@@ -99,15 +102,12 @@ body {
 }
 
 .video-overlay {
-  position: absolute;
-  inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba(0, 0, 0, 0.85),
-    rgba(0, 0, 0, 0.75),
-    rgba(0, 0, 0, 0.55)
+    rgba(0,0,0,0.55),
+    rgba(0,0,0,0.35),
+    rgba(0,0,0,0.15)
   );
-  z-index: 1;
 }
 
 .video-text {
@@ -351,6 +351,19 @@ html, body {
   overflow-x: hidden; /* elimină scroll-ul orizontal */
 }
 
+
+/* =======================
+   DARK MODE FIX
+======================= */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #6d856a; /* aceași culoare ca pe light mode */
+    color: #fff; /* text alb */
+  }
+}
+
+
+
 /* =======================
    MEDIA QUERIES - MOBILE
 ======================= */
@@ -389,4 +402,3 @@ html, body {
   }
   
 }
-
