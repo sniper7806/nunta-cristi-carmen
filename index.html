@@ -1,11 +1,12 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="ro">
+
 <head>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Cristi & Carmen - Invitație Nuntă</title>
+<title>Cristi & Carmen</title>
 
 <link rel="stylesheet" href="style.css">
 
@@ -15,44 +16,36 @@
 
 <body>
 
-<!-- INTRO SPLASH -->
+<!-- SPLASH -->
 
 <div id="intro-splash">
-<video id="splash-video" preload="auto">
+<video id="splash-video">
 <source src="intro-video.webm" type="video/webm">
 </video>
 </div>
 
-<!-- SITE -->
+<!-- HERO -->
 
-<div id="site-content">
-
-<!-- HERO VIDEO -->
-
-<div class="video-wrapper">
+<div class="hero">
 
 <video autoplay muted loop playsinline>
 <source src="intro-video.webm" type="video/webm">
 </video>
 
-<div class="video-overlay"></div>
-
-<div class="video-text">
+<div class="hero-text">
 <div class="names">Cristi & Carmen</div>
 <div class="date">26.09.2026</div>
 </div>
-
-<div class="video-fade-bottom"></div>
 
 </div>
 
 <!-- FAMILY -->
 
-<section class="family-section">
+<section class="family">
 
-<p class="family-title">Alături de părinții:</p>
+<div class="family-title">Alături de părinții:</div>
 
-<div class="parents-grid">
+<div class="parents">
 
 <div>
 <p>Adrian & Mihaela</p>
@@ -66,7 +59,7 @@
 
 </div>
 
-<p class="family-title">Și de nașii:</p>
+<div class="family-title">Și de nașii:</div>
 
 <div class="nasi">
 <p>Ramona & Dragoș</p>
@@ -85,35 +78,26 @@
 Până la cea mai specială zi din viața noastră
 </p>
 
-<div class="countdown-container">
+<div class="countdown">
 
-<div class="countdown" id="countdown">
-
-<div class="countdown-box">
+<div class="box">
 <span class="number" id="days">0</span>
-<span class="label">zile</span>
+zile
 </div>
 
-<div class="countdown-box">
+<div class="box">
 <span class="number" id="hours">0</span>
-<span class="label">ore</span>
+ore
 </div>
 
-<div class="countdown-box">
+<div class="box">
 <span class="number" id="minutes">0</span>
-<span class="label">minute</span>
+minute
 </div>
 
-<div class="countdown-box">
+<div class="box">
 <span class="number" id="seconds">0</span>
-<span class="label">secunde</span>
-</div>
-
-</div>
-
-<div class="fireworks-box" id="fireworks-box">
-<canvas id="fireworks"></canvas>
-<div id="final-message">Ne-am căsătorit ❤️</div>
+secunde
 </div>
 
 </div>
@@ -122,37 +106,35 @@ Până la cea mai specială zi din viața noastră
 
 <!-- LOCATIONS -->
 
-<section class="locations-section">
+<section class="locations">
 
 <h2>Locații</h2>
 
-<div class="locations-container">
+<div class="cards">
 
-<div class="location-card">
+<div class="card">
 
-<div class="location-title">
-⛪ Biserica „Nașterea Maicii Domnului”
-</div>
+<h3>⛪ Biserica „Nașterea Maicii Domnului”</h3>
 
 <p>Ora: __:__</p>
+
 <p>Strada Târgu Neamț 6, București</p>
 
-<div class="map-container">
+<div class="map">
 <iframe src="https://maps.google.com/maps?q=Biserica%20Nasterea%20Maicii%20Domnului%20Drumul%20Taberei%20Bucuresti&z=16&output=embed"></iframe>
 </div>
 
 </div>
 
-<div class="location-card">
+<div class="card">
 
-<div class="location-title">
-🍽 Restaurant Le Blanc
-</div>
+<h3>🍽 Restaurant Le Blanc</h3>
 
 <p>Ora: __:__</p>
+
 <p>Strada Valea Oltului 199-201, București</p>
 
-<div class="map-container">
+<div class="map">
 <iframe src="https://www.google.com/maps?q=Restaurant+Le+Blanc+Bucuresti&output=embed"></iframe>
 </div>
 
@@ -162,55 +144,35 @@ Până la cea mai specială zi din viața noastră
 
 </section>
 
-</div>
-
-<!-- SCRIPT -->
-
 <script>
 
 const splash = document.getElementById("intro-splash")
-const splashVideo = document.getElementById("splash-video")
-const site = document.getElementById("site-content")
+const video = document.getElementById("splash-video")
 
-splash.addEventListener("click", ()=> splashVideo.play())
+splash.addEventListener("click",()=>video.play())
 
-splashVideo.addEventListener("ended", ()=>{
-
-splash.style.opacity="0"
-
-setTimeout(()=>{
-
+video.addEventListener("ended",()=>{
 splash.style.display="none"
-site.style.display="block"
-
-},1000)
-
 })
 
-let countDownDate = new Date("2026-09-26T17:30:00+02:00").getTime()
+let date=new Date("2026-09-26T17:30:00").getTime()
 
-function updateCountdown(){
+setInterval(()=>{
 
-let now = new Date().getTime()
-let distance = countDownDate - now
+let now=new Date().getTime()
+let d=date-now
 
-if(distance<=0)return
+let zile=Math.floor(d/(1000*60*60*24))
+let ore=Math.floor((d%(1000*60*60*24))/(1000*60*60))
+let min=Math.floor((d%(1000*60*60))/(1000*60))
+let sec=Math.floor((d%(1000*60))/1000)
 
-let zile=Math.floor(distance/(1000*60*60*24))
-let ore=Math.floor((distance%(1000*60*60*24))/(1000*60*60))
-let minute=Math.floor((distance%(1000*60*60))/(1000*60))
-let secunde=Math.floor((distance%(1000*60))/1000)
+days.textContent=zile
+hours.textContent=ore
+minutes.textContent=min
+seconds.textContent=sec
 
-document.getElementById("days").textContent=zile
-document.getElementById("hours").textContent=ore
-document.getElementById("minutes").textContent=minute
-document.getElementById("seconds").textContent=secunde
-
-}
-
-setInterval(updateCountdown,1000)
-
-updateCountdown()
+},1000)
 
 </script>
 
