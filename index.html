@@ -5,36 +5,33 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Cristi & Carmen</title>
+<title>Cristi & Carmen - Invitație Nuntă</title>
 
 <link rel="stylesheet" href="style.css">
+
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
 
 </head>
 
 <body>
 
-<!-- SPLASH VIDEO -->
-<div id="intro-splash">
+<!-- INTRO SPLASH -->
 
+<div id="intro-splash">
 <video id="splash-video" preload="auto">
 <source src="intro-video.webm" type="video/webm">
 </video>
-
-<div class="splash-text">
-<p>Apasă oriunde pentru a începe</p>
 </div>
-
-</div>
-
 
 <!-- SITE -->
+
 <div id="site-content">
 
 <!-- HERO VIDEO -->
+
 <div class="video-wrapper">
 
-<video autoplay muted playsinline loop>
+<video autoplay muted loop playsinline>
 <source src="intro-video.webm" type="video/webm">
 </video>
 
@@ -49,8 +46,8 @@
 
 </div>
 
+<!-- FAMILY -->
 
-<!-- FAMILIE -->
 <section class="family-section">
 
 <p class="family-title">Alături de părinții:</p>
@@ -78,12 +75,15 @@
 
 </section>
 
-
 <!-- COUNTDOWN -->
+
 <section class="countdown-section">
 
-<h1 class="countdown-title">Numărătoare inversă</h1>
-<p class="subtitle">Până la cea mai specială zi din viața noastră</p>
+<h1>Numărătoare inversă</h1>
+
+<p class="subtitle">
+Până la cea mai specială zi din viața noastră
+</p>
 
 <div class="countdown-container">
 
@@ -113,15 +113,15 @@
 
 <div class="fireworks-box" id="fireworks-box">
 <canvas id="fireworks"></canvas>
-<div id="final-message">Ne-am căsătorit! ❤️</div>
+<div id="final-message">Ne-am căsătorit ❤️</div>
 </div>
 
 </div>
 
 </section>
 
+<!-- LOCATIONS -->
 
-<!-- LOCATII -->
 <section class="locations-section">
 
 <h2>Locații</h2>
@@ -130,43 +130,30 @@
 
 <div class="location-card">
 
-<div class="location-title">⛪ Biserica „Nașterea Maicii Domnului”</div>
+<div class="location-title">
+⛪ Biserica „Nașterea Maicii Domnului”
+</div>
 
-<p class="location-time">Ora: __:__</p>
-
-<p class="location-address">
-Strada Târgu Neamț 6, București
-</p>
+<p>Ora: __:__</p>
+<p>Strada Târgu Neamț 6, București</p>
 
 <div class="map-container">
-
-<iframe
-src="https://maps.google.com/maps?q=Biserica%20Nasterea%20Maicii%20Domnului%20Drumul%20Taberei%20Bucuresti&z=16&output=embed"
-loading="lazy">
-</iframe>
-
+<iframe src="https://maps.google.com/maps?q=Biserica%20Nasterea%20Maicii%20Domnului%20Drumul%20Taberei%20Bucuresti&z=16&output=embed"></iframe>
 </div>
 
 </div>
-
 
 <div class="location-card">
 
-<div class="location-title">🍽 Restaurant Le Blanc</div>
+<div class="location-title">
+🍽 Restaurant Le Blanc
+</div>
 
-<p class="location-time">Ora: __:__</p>
-
-<p class="location-address">
-Strada Valea Oltului 199-201, București
-</p>
+<p>Ora: __:__</p>
+<p>Strada Valea Oltului 199-201, București</p>
 
 <div class="map-container">
-
-<iframe
-src="https://www.google.com/maps?q=Restaurant+Le+Blanc+Bucuresti&output=embed"
-loading="lazy">
-</iframe>
-
+<iframe src="https://www.google.com/maps?q=Restaurant+Le+Blanc+Bucuresti&output=embed"></iframe>
 </div>
 
 </div>
@@ -175,58 +162,44 @@ loading="lazy">
 
 </section>
 
+</div>
+
+<!-- SCRIPT -->
 
 <script>
-
-/* SPLASH VIDEO */
 
 const splash = document.getElementById("intro-splash")
 const splashVideo = document.getElementById("splash-video")
 const site = document.getElementById("site-content")
 
-splash.addEventListener("click", () => {
-splashVideo.play()
-})
+splash.addEventListener("click", ()=> splashVideo.play())
 
-splashVideo.addEventListener("ended", () => {
+splashVideo.addEventListener("ended", ()=>{
 
-splash.style.opacity = "0"
+splash.style.opacity="0"
 
 setTimeout(()=>{
+
 splash.style.display="none"
 site.style.display="block"
+
 },1000)
 
 })
 
-
-/* COUNTDOWN */
-
-var countDownDate = new Date("2026-09-26T17:30:00+02:00").getTime()
+let countDownDate = new Date("2026-09-26T17:30:00+02:00").getTime()
 
 function updateCountdown(){
 
-var now = new Date().getTime()
+let now = new Date().getTime()
+let distance = countDownDate - now
 
-var distance = countDownDate - now
+if(distance<=0)return
 
-if(distance <=0){
-clearInterval(interval)
-document.getElementById("countdown").style.display="none"
-
-const fireworksBox=document.getElementById("fireworks-box")
-
-fireworksBox.style.display="block"
-
-startFireworks()
-
-return
-}
-
-var zile=Math.floor(distance/(1000*60*60*24))
-var ore=Math.floor((distance%(1000*60*60*24))/(1000*60*60))
-var minute=Math.floor((distance%(1000*60*60))/(1000*60))
-var secunde=Math.floor((distance%(1000*60))/1000)
+let zile=Math.floor(distance/(1000*60*60*24))
+let ore=Math.floor((distance%(1000*60*60*24))/(1000*60*60))
+let minute=Math.floor((distance%(1000*60*60))/(1000*60))
+let secunde=Math.floor((distance%(1000*60))/1000)
 
 document.getElementById("days").textContent=zile
 document.getElementById("hours").textContent=ore
@@ -235,82 +208,9 @@ document.getElementById("seconds").textContent=secunde
 
 }
 
-var interval=setInterval(updateCountdown,1000)
+setInterval(updateCountdown,1000)
 
 updateCountdown()
-
-
-/* ARTIFICII */
-
-function startFireworks(){
-
-const canvas=document.getElementById("fireworks")
-const ctx=canvas.getContext("2d")
-
-canvas.width=canvas.parentElement.clientWidth
-canvas.height=canvas.parentElement.clientHeight
-
-let particles=[]
-
-function random(min,max){
-return Math.random()*(max-min)+min
-}
-
-function createFirework(){
-
-const x=random(50,canvas.width-50)
-const y=random(50,canvas.height/2)
-
-for(let i=0;i<50;i++){
-
-particles.push({
-
-x,
-y,
-vx:random(-3,3),
-vy:random(-3,3),
-alpha:1,
-color:`hsl(${Math.random()*360},100%,65%)`
-
-})
-
-}
-
-}
-
-setInterval(createFirework,500)
-
-function animate(){
-
-ctx.fillStyle="rgba(53,80,26,1)"
-ctx.fillRect(0,0,canvas.width,canvas.height)
-
-particles.forEach((p,i)=>{
-
-p.x+=p.vx
-p.y+=p.vy
-p.alpha-=0.02
-
-ctx.globalAlpha=p.alpha
-ctx.fillStyle=p.color
-
-ctx.beginPath()
-ctx.arc(p.x,p.y,2,0,Math.PI*2)
-ctx.fill()
-
-if(p.alpha<=0)particles.splice(i,1)
-
-})
-
-ctx.globalAlpha=1
-
-requestAnimationFrame(animate)
-
-}
-
-animate()
-
-}
 
 </script>
 
