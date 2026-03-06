@@ -1,16 +1,3 @@
-/* BODY */
-body {
-  margin: 0;
-  font-family: 'Arial', sans-serif;
-  background-color: #6d856a;
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  min-height: 100vh;
-  text-align: center;
-}
 /* =======================
    WRAPPER BACKGROUND
 ======================= */
@@ -22,13 +9,6 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-/* VIDEO */
-#intro-video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
 }
 
 /* =======================
@@ -77,10 +57,8 @@ body {
 ======================= */
 .video-wrapper { position: relative; width: 100%; height: 100vh; overflow:hidden; }
 #intro-video-main { width:100%; height:100%; object-fit:cover; }
-.video-overlay { background: linear-gradient(to bottom, rgba(0,0,0,0.65), rgba(0,0,0,0.45), rgba(0,0,0,0.65)); z-index: 1; }
-.video-text { position:absolute; 
-inset:0; 
-z-index:2; display:flex; flex-direction:column; justify-content:center; align-items:center; pointer-events:none; animation: fadeIn 2.5s ease forwards; text-align:center; }
+.video-overlay { background: linear-gradient(to bottom, rgba(0,0,0,0.55), rgba(0,0,0,0.35), rgba(0,0,0,0.15)); pointer-events:none; }
+.video-text { position:absolute; inset:0; z-index:2; display:flex; flex-direction:column; justify-content:center; align-items:center; pointer-events:none; animation: fadeIn 2.5s ease forwards; text-align:center; }
 .video-text .names { font-family: 'Great Vibes', cursive; font-size: clamp(3rem,6vw,5rem); color:#fff; text-shadow:0 6px 25px rgba(0,0,0,0.7); }
 .video-text .date { font-family: 'Great Vibes', cursive; margin-top:2em; font-size:2.3rem; color:#fff; text-shadow:0 4px 12px rgba(0,0,0,0.6); }
 
@@ -145,20 +123,18 @@ z-index:2; display:flex; flex-direction:column; justify-content:center; align-it
    COUNTDOWN CU FUNDAL VERDE LUMINOS + TEXT CREM + SHADOW + FONT NORMAL
 ======================= */
 
-.countdown-group {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1em; /* spațiu între titlu, subtitlu și countdown */
-  color: #f5e6c8; /* crem */
+/* Titlu și subtitlu */
+h1, .subtitle {
+  color: rgba(241, 235, 223, 1); /* crem */
+  font-family: Arial, sans-serif; /* font normal */
   text-align: center;
 }
 
-/* suprascriem culoarea pentru h1 și subtitlu în acest grup */
-.countdown-group h1,
-.countdown-group .subtitle {
-  color: #f5e6c8; /* crem */
+.subtitle {
+  font-size: 1.2em;
+  margin-bottom: 1em;
 }
+
 /* Container countdown */
 .countdown-container {
   display: flex;
