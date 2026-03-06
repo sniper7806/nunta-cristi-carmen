@@ -1,6 +1,7 @@
 :root {
   color-scheme: light;
 }
+
 /* =======================
    INTRO SPLASH FULLSCREEN
 ======================= */
@@ -71,7 +72,6 @@
 }
 
 body {
-   background:#f1ebdf;
   margin: 0;
   padding: 0;
   width: 100%;
@@ -105,13 +105,12 @@ body {
 .video-overlay {
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(
-      to bottom,
-      rgba(255, 255, 255, 0.15), /* alb semi-transparent sus */
-      rgba(0, 0, 0, 0.3),         /* gri mediu la mijloc */
-      rgba(0, 0, 0, 0.2)          /* mai deschis jos */
-    );
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.85),
+    rgba(0, 0, 0, 0.75),
+    rgba(0, 0, 0, 0.55)
+  );
   z-index: 1;
 }
 
@@ -158,8 +157,8 @@ body {
   background: linear-gradient(
     to bottom,
     rgba(241, 235, 223, 0) 0%,
-    rgba(241,235,223,0.4) 40%,
-    #f1ebdf 100%
+    rgba(241, 235, 223, 0.3) 50%,
+    rgba(241, 235, 223, 0.9) 100%
   );
   pointer-events: none;
   z-index: 3;
@@ -172,10 +171,10 @@ body {
   width: 100%;
   max-width: 1200px; /* limitează lățimea pe desktop */
   margin: 0 auto;     /* centrează secțiunea */
-  background-color: #f1ebdf !important; 
+  background-color: rgba(241, 235, 223, 0.9);
   padding: 3em 1em;
   text-align: center;
-  color: #4B2E1E; /* maro închis, vizibil pe fundal deschis */
+  color: #4B2E1E;
 }
 
 .family-title {
@@ -225,7 +224,7 @@ body {
 }
 
 .countdown-box {
-  background-color: #4B2E1E !important;
+  background-color: rgba(255, 255, 255, 0.15);
   padding: 1.5em;
   border-radius: 12px;
   min-width: 80px;
@@ -285,7 +284,7 @@ body {
   width: 100%;
   max-width: 1200px;  /* centru pe ecrane mari */
   margin: 0 auto;
-  background-color: #f1ebdf !important;
+  background: rgba(241,235,223,0.95);
   padding: 3em 1em;
   text-align: center;
   color: #4B2E1E;
@@ -354,7 +353,6 @@ html, body {
   width: 100%;
   height: 100%;
   overflow-x: hidden; /* elimină scroll-ul orizontal */
-  background:#f1ebdf;
 }
 
 /* =======================
@@ -393,18 +391,5 @@ html, body {
     width: 250px;
     height: 180px;
   }
-  .video-overlay {
-    background: linear-gradient(
-      to bottom,
-      rgba(0,0,0,0.3),
-      rgba(0,0,0,0.15),
-      rgba(0,0,0,0.3)
-    );
+  
 }
-}
-
-
-
-
-
-
